@@ -1,0 +1,165 @@
+.wrapper{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+    overflow: hidden;
+}
+html{
+    font-size: calc(100vw / 1920 * 10);
+    height: 100%;
+}
+a{
+    cursor: pointer;
+}
+body{
+    font-family: $font-family;
+    font-size: 1.6rem;
+    margin: 0;
+    height: 100%;
+    background: #EEEAEA;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    &.no-scroll{
+        overflow: hidden;
+    }
+}
+.main{
+    flex: 1 1 auto;
+}
+
+.container{
+    max-width: 155.5rem;
+    margin: 0 auto;
+    width: 100%;
+    @media (max-width: 962px){
+        padding: 0 4rem;
+    }
+    @media (max-width: 700px){
+        padding: 2.4rem;
+    }
+}
+
+.stroke-btn--blue{
+    position: relative;
+    overflow: hidden;
+    border: 0.2rem solid $body;
+    border-radius: 5rem;
+    transition: all 0.3s;
+    span{
+        transition: all 0.3s;
+        position: relative;
+        z-index: 7;
+        margin-bottom: 0 !important;
+    }
+    &:hover{
+        border-color: transparent;
+        &::before{
+            transform: scale(1) translateX(0%);
+        }
+        span{
+            color: $green;
+        }
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $blue;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transform: scale(0.7) translate(-70%, 150%);
+        border-radius: 5rem;
+        transition: all 0.3s;
+    }
+}
+
+.stroke-btn--green{
+    position: relative;
+    overflow: hidden;
+    border: 0.2rem solid $green;
+    border-radius: 5rem;
+    transition: all 0.3s;
+    span{
+        transition: all 0.3s;
+        position: relative;
+        z-index: 7;
+        margin-bottom: 0 !important;
+    }
+    &:hover{
+        border-color: transparent;
+        &::before{
+            transform: scale(1) translateX(0%);
+        }
+        span{
+            color: $body;
+        }
+    }
+    &::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $green;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        transform: scale(0.7) translate(-70%, 150%);
+        border-radius: 5rem;
+        transition: all 0.3s;
+    }
+}
+
+.btn-arrow{
+    display: flex;
+    &:hover{
+        span{
+            background: $blue;
+            border-color: $blue;
+            color: $green;
+        }
+        svg{
+            rect{
+                stroke: $blue;
+                fill: $blue;
+            }
+            path{
+                stroke: $green;
+            }
+        }
+    }
+    span{
+        transition: all 0.3s;
+        display: block;
+        padding: 2rem 4rem;
+        border: 0.2rem solid $body;
+        font: 600 2rem / 1.6 $font-family;
+        color: $body;
+        border-radius: 9rem;
+    }
+    svg{
+        width: 7.3rem;
+        height: 7.3rem;   
+    }
+}
+
+@media (max-width: 962px){
+    html{
+        font-size: calc(100vw / 768 * 10);
+        height: 100%;
+    }
+}
+
+@media (max-width: 700px){
+    html{
+        font-size: calc(100vw / 360 * 10);
+        height: 100%;
+    }
+}
+
+
+
+
+

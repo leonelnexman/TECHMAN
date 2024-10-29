@@ -1,0 +1,58 @@
+$sprites: (
+{{#retina_groups}}
+  "{{name}}": (
+  {{#with normal}}
+    normal: (
+    x: {{px.offset_x}},
+    y: {{px.offset_y}},
+    width: {{px.width}},
+    height: {{px.height}},
+    image: "{{escaped_image}}",
+    total_width: {{px.total_width}},
+    total_height: {{px.total_height}},
+    ),
+  {{/with}}
+  {{#with retina}}
+    retina: (
+    x: {{px.offset_x}},
+    y: {{px.offset_y}},
+    width: {{px.width}},
+    height: {{px.height}},
+    image: "{{escaped_image}}",
+    total_width: {{px.total_width}},
+    total_height: {{px.total_height}},
+    ),
+  {{/with}}
+  ),
+{{/retina_groups}}
+);
+
+@function icon-attr($name, $attr, $size: normal) {
+  $icon: map-get($sprites, $name);
+  $iconSize: map-get($icon, $size);
+  @return map-get($iconSize, $attr);
+}
+
+@mixin sprite($name) {
+  display: inline-block;
+  vertical-align: middle;
+
+  width: icon-attr($name, width);
+  height: icon-attr($name, height);
+
+  $image: url("#{icon-attr($name, image)}");
+  $position: icon-attr($name, x) icon-attr($name, y);
+  $size: icon-attr($name, total_width) icon-attr($name, total_height);
+
+  background: $image $position / $size no-repeat;
+
+  @include retina {
+    background-image: url("#{icon-attr($name, image, retina)}");
+  }
+}
+
+@each $name in map-keys($sprites) {
+  .sprite-#{$name} {
+    @include sprite($name);
+  }
+}

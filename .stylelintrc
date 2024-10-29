@@ -1,0 +1,80 @@
+{
+  "plugins": [
+    "stylelint-no-unsupported-browser-features"
+  ],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "property-case": "lower",
+    "selector-type-case": "lower",
+    "no-unknown-animations": true,
+    "indentation": 4,
+    "no-empty-source": null,
+    "block-no-empty": null,
+    "selector-max-compound-selectors": 3,
+    "no-duplicate-selectors": true,
+    "shorthand-property-no-redundant-values": true,
+    "alpha-value-notation": "number",
+    "color-function-notation": "legacy",
+    "selector-class-pattern": [
+      "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+      {
+        "message": "Class names should match the BEM naming convention"
+      }
+    ],
+    "max-nesting-depth": [3,
+      {
+        "ignore": ["pseudo-classes"],
+        "ignoreAtRules": ["include", "media"]
+      }
+    ],
+    "no-descending-specificity": [true,
+      { "severity": "warning" }
+    ],
+    "at-rule-no-unknown": null,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "no-missing-end-of-source-newline": null,
+    "declaration-block-no-redundant-longhand-properties": [true,
+      {
+        "ignoreShorthands": ["flex-flow"]
+      }
+    ],
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates"]
+      }
+    ],
+    "number-leading-zero": "never",
+    "selector-pseudo-element-colon-notation": "single",
+    "comment-no-empty": null,
+    "order/order": [
+      [
+        "declarations",
+        {
+          "type": "at-rule",
+          "name": "media"
+        },
+        {
+          "type": "rule",
+          "selector": "^&::(before|after)"
+        },
+        {
+          "type": "rule",
+          "selector": "^&:\\w"
+        },
+        {
+          "type": "rule",
+          "selector": "^."
+        },
+        {
+          "type": "rule",
+          "selector": "^&_"
+        }
+      ],
+      { "severity": "warning" }
+    ]
+  }
+}

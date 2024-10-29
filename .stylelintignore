@@ -1,0 +1,5 @@
+build/**/*.css
+src/sass/base/_reset.scss
+src/sass/lib/**/*
+src/sass/helpers/**/*
+src/sass/generated/**/*

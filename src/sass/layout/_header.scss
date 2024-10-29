@@ -1,0 +1,113 @@
+.header{
+    padding-top: 2.7rem;
+    position: relative;
+    z-index: 777;
+    @media (max-width: 700px){
+        padding-top: 0;
+    }
+    .container{
+        display: flex;
+        gap: 15rem;
+        justify-content: space-between;
+        align-items: center;
+        @media (max-width: 962px){
+            gap: 0;
+        }
+    }
+    .hamburger{
+        display: none;
+        @media (max-width: 962px){
+            display: block;
+            svg{
+              width: 3.6rem;
+              height: 1.9rem;  
+            }
+        }
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 1.6rem;
+        img{
+            width: 15.5rem;
+            @media (max-width: 962px){
+                width: 17.7rem;
+            }
+            @media (max-width: 700px){
+                width: 12.3rem;
+            }
+        }
+        p{
+            font: 400 1.2rem / 1 $font-family;
+            letter-spacing: 0.04em;
+            color: rgba(22, 22, 22, 0.62);  
+            @media (max-width: 962px){
+                display: none;
+            } 
+        }
+    }
+    .nav{
+        display: flex;
+        gap: 2rem;
+        @media (max-width: 962px){
+            display: none;
+        }
+        a{
+            padding: 0.5rem;
+            font: 500 1.8rem / 1.4 $font-family;
+            color: $body;
+            border-radius: 2.5rem;
+            transition: all 0.3s;
+            &.active{
+                background: $green;
+            }
+            &:hover{
+                background: $green;
+            }
+        }
+    }
+    &__actions{
+        display: flex;
+        align-items: center;
+        gap: 3.3rem;
+    }
+    &__tel{
+        font: 500 1.8rem / 1.6 $font-family;
+        color: $body;
+        transition: all 0.3s;
+        @media (max-width: 962px){
+            font: 700 1.6rem / 1.6 $font-family;
+        }
+        @media (max-width: 700px){
+            display: none;
+        }
+        &:hover{
+            color: $blue;
+        }
+    }
+    &__btn{
+        padding: 1.8rem 2.4rem;
+        font: 500 1.8rem / 1 $font-family;
+        color: $body;
+        @media (max-width: 962px){
+            font: 700 1.6rem / 1.6 $font-family;
+            padding: 1.6rem 2.1rem;
+        }
+        @media (max-width: 700px){
+            display: none;
+        }
+    }
+    .lang-swither{
+        padding: 0.3rem 0.7rem;
+        font: 400 1.8rem / 1.6 $font-family;
+        color: $body; 
+        transition: all 0.3s; 
+        border-radius: 1.5rem;
+        @media (max-width: 962px){
+            display: none;
+        } 
+        &:hover{
+            background: $green;
+        } 
+    }
+}
