@@ -43,7 +43,13 @@ const development = new Swiper('.development__slider', {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const scrollPercentage = 0.33; // 33% для прокрутки
+
+
+const isMobile = window.matchMedia("(max-width: 962px)").matches;
+
+if (!isMobile) {
+
+  const scrollPercentage = 0.33; // 33% для прокрутки
 const progressLine = document.querySelector(".progress-line"); // Предполагаем, что у вас есть элемент с классом .progress-line
 let scrollStep = 0; // Текущий шаг прокрутки (0, 1, 2)
 let isScrolling = false; // Флаг, чтобы отслеживать, прокручивается ли сейчас
@@ -122,6 +128,8 @@ ScrollTrigger.create({
   onEnterBack: enableInnerScroll,
   onLeaveBack: disableInnerScroll,
 });
+  
+}
 
 
 

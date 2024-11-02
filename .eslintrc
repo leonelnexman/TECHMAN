@@ -16,6 +16,7 @@
     "dollar-sign/dollar-sign": [2, "ignoreProperties"],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
     "no-unused-vars": 1,
+    "no-inner-declarations": "off",
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "no-param-reassign": ["error", { "props": false }],
     "no-underscore-dangle":  ["error", { "allow": ["_embedded"] }]
