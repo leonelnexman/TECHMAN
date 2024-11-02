@@ -2,7 +2,7 @@
   "name": "NEXMAN",
   "version": "0.1.0",
   "authors": "Mirax",
-  "homepage": "https://github.com/leonelnexman/NEXMAN2024/",
+  "homepage": "https://github.com/leonelnexman/TECHMAN/",
   "scripts": {
     "deploy": "gh-pages -d build",
     "build": "gulp build --production",

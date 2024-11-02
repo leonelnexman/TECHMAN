@@ -2,10 +2,13 @@
     position: relative;
     background: $body;
     padding-top: 25rem;
-    height: 100vh;
-    @media (max-width: 962px){
+    min-height: 100vh;
+    @media (max-width: 1200px){
         padding-top: 12.1rem;
         height: auto;
+    }
+     @media (max-width: 962px){
+        min-height: auto;
     }
     &__wrapper{
         display: flex;
@@ -51,6 +54,7 @@
             left: 95rem;
             width: 23.9rem;
             height: 17.7rem;
+            animation: levitate 3s ease-in-out infinite;
             @media (max-width: 962px){
                 width: 19.4rem;
                 height: 14.4rem;
@@ -64,6 +68,23 @@
                 height: 10.8rem;
                 right: 1rem;
              }
+             @keyframes levitate {
+                0% {
+                  transform: translateY(0);
+                }
+                50% {
+                  transform: translateY(-10px);
+                }
+                100% {
+                  transform: translateY(0);
+                }
+              }
+        }
+        .stroke-btn--green::before{
+            transform: scale(1) translate(-150%, 0%) !important;
+        }
+        .stroke-btn--green:hover::before{
+            transform: scale(1) translate(0%, 0%) !important;
         }
     }
     .author{
@@ -112,13 +133,27 @@
                 margin-bottom: 1.2rem;
              }
         }
+        .stroke-btn--blue::before{
+            transform: scale(1) translate(-150%, 0%);
+        }
         button{
             border: 0.2rem solid $blue;
             margin-bottom: 9rem;
+            span{
+                font: 500 2rem / 1.2 "Golos", sans-serif;
+            }
             @media (max-width: 700px){
                 width: 31rem;
                 position: absolute;
-             }
+            }
+            &:hover{
+                span{
+                    color: #fff;
+                }
+                &::before{
+                    transform: scale(1) translate(0%, 0%);
+                }
+            }
         } 
         a{
             font: 400 2rem / 1.2 $font-family;

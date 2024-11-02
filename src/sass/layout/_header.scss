@@ -4,6 +4,12 @@
     z-index: 777;
     @media (max-width: 700px){
         padding-top: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 7777777;
     }
     .container{
         display: flex;
@@ -40,7 +46,8 @@
         p{
             font: 400 1.2rem / 1 $font-family;
             letter-spacing: 0.04em;
-            color: rgba(22, 22, 22, 0.62);  
+            color: rgba(22, 22, 22, 0.62);
+            white-space: nowrap;  
             @media (max-width: 962px){
                 display: none;
             } 
@@ -49,7 +56,7 @@
     .nav{
         display: flex;
         gap: 2rem;
-        @media (max-width: 962px){
+        @media (max-width: 1200px){
             display: none;
         }
         a{
@@ -58,6 +65,7 @@
             color: $body;
             border-radius: 2.5rem;
             transition: all 0.3s;
+            white-space: nowrap;
             &.active{
                 background: $green;
             }

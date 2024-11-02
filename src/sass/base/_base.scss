@@ -7,6 +7,9 @@
 html{
     font-size: calc(100vw / 1920 * 10);
     height: 100%;
+    @media (min-width: 2150px){
+        font-size: calc(100vw / 1920 * 8);
+    }
 }
 a{
     cursor: pointer;
@@ -120,6 +123,11 @@ body{
             border-color: $blue;
             color: $green;
         }
+        .arrow{
+            border-color: $blue;
+            background: $blue;
+            transform: translateX(0.4rem);
+        }
         svg{
             rect{
                 stroke: $blue;
@@ -139,9 +147,46 @@ body{
         color: $body;
         border-radius: 9rem;
     }
-    svg{
+    .arrow{
         width: 7.3rem;
-        height: 7.3rem;   
+        height: 7.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 0.2rem solid $body;
+        border-radius: 50%;
+        margin-left: 0.1rem;
+        transition: all 0.3s;
+        @media (max-width: 700px){
+            width: 5.6rem !important;
+            height: 5.6rem !important;
+        } 
+    }
+    svg{
+        width: 2.7rem;
+        height: 2.1rem;
+        @media (max-width: 700px){
+            width: 1.9rem !important;
+            height: 2.1rem !important;
+        }  
+    }
+}
+
+.btn-all{
+    transition: all 0.3s;
+    svg{
+        transition: all 0.3s;
+    }
+    &:hover{
+        background: $blue !important;
+        color: $green !important;
+        svg{
+            transform: translateX(0.3rem);
+            circle{
+                stroke: $green;
+                fill: $green;
+            }
+        }
     }
 }
 
