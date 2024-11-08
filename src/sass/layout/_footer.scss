@@ -2,7 +2,7 @@
     position: relative;
     background: $body;
     padding-top: 25rem;
-    min-height: 100vh;
+    // min-height: 900rem;
     @media (max-width: 1200px){
         padding-top: 12.1rem;
         height: auto;
@@ -13,8 +13,10 @@
     &__wrapper{
         display: flex;
         justify-content: space-between;
+        margin-bottom: 19.9rem;
         @media (max-width: 962px){
             flex-direction: column;
+            margin-bottom: 0;
         }
     }
     &__title{
@@ -48,13 +50,13 @@
                 width: 31rem;
              }
         }
-        svg{
+        img{
             position: absolute;
             top: 7rem;
             left: 95rem;
             width: 23.9rem;
             height: 17.7rem;
-            animation: levitate 3s ease-in-out infinite;
+            animation: levitate 5s ease-in-out infinite;
             @media (max-width: 962px){
                 width: 19.4rem;
                 height: 14.4rem;
@@ -177,9 +179,27 @@
             font: 500 2.4rem / 1.2 $font-family;
             color: $white;    
         }
-        p{
+        a{
             font: 400 2rem / 1.6 $font-family;
-            color: rgba(255, 255, 255, 0.8);    
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: all 0.3s;  
+            &:hover{
+                p{
+                    text-decoration: underline;
+                    text-decoration-skip-ink: none;
+                }
+                span{
+                    opacity: 1;
+                }
+            }
+            span{
+                opacity: 0;
+                display: block;
+                color: $green;
+                font: 400 1.4rem / 1.6 $font-family;
+                transition: all 0.3s;
+                text-decoration: none !important;
+            }
         }
         svg{
           width: 2.3rem;

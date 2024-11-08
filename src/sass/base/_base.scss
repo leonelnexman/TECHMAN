@@ -146,6 +146,7 @@ body{
         font: 600 2rem / 1.6 $font-family;
         color: $body;
         border-radius: 9rem;
+        white-space: nowrap;
     }
     .arrow{
         width: 7.3rem;

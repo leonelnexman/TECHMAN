@@ -22,7 +22,7 @@
     .bg-dec{
         position: absolute;
         top: -9rem;
-        left: -4.5rem;
+        left: -5rem;
         z-index: 2;
         width: 83.9rem;
         height: 105.8rem;
@@ -172,8 +172,10 @@
     }
     &__links-inner{
         @media (max-width: 700px){
-            width: 107%;
+            width: 120%;
             overflow: auto;
+            margin-left: -3rem;
+            padding-left: 3rem;
             &::-webkit-scrollbar{
                 display: none;
             }
@@ -186,10 +188,8 @@
         gap: 2rem;
         @media (max-width: 962px){
             width: 60rem;
-            margin-left: 7rem;
         }
         @media (max-width: 700px){
-            margin-left: 0;
             gap: 1.2rem;
             width: 50rem;
         }
@@ -368,6 +368,9 @@
             .solutions__overlay{
                 opacity: 1;
             }
+            img{
+                transform: scale(1.1);
+            }
         }
         @media (max-width: 962px){
             width: 33.8rem;
@@ -379,6 +382,7 @@
             border-radius: 4rem;
             width: 46.5rem;
             height: 54.5rem;
+            transition: all 0.3s;
             @media (max-width: 962px){
                 border-radius: 2.8rem;
                 width: 33.8rem;
@@ -464,6 +468,12 @@
             gap: 0.7rem;
             font: 500 1.4rem / 1.1 $font-family;
             color: $white;
+            &.dark-purple{
+                background: #110545;
+            }
+            &.light-purple{
+                background: #684FFF;
+            }
             svg{
                 width: 2.5rem;
                 height: 1.3rem;
@@ -829,12 +839,12 @@
         width: 100%;
         height: 77.6rem; 
         filter: blur(70px);
-        background: #f1f2ff;
+        background: #ffff;
         z-index: 1;
     }
     .container{
         position: relative;
-        z-index: 3;
+        z-index: 777777777777777777;
     }
     &__title{
         display: flex;
@@ -927,22 +937,24 @@
         margin-bottom: 7rem;
         @media (max-width: 962px){
             justify-content: flex-start;
-            width: 100%;
+            width: 120%;
             overflow: auto;
+            margin-left: -3rem;
+            padding: 0 4rem;
             &::-webkit-scrollbar{
                 display: none;
             }
         }
         @media (max-width: 700px){
            margin-bottom: 3.5rem;
-           width: 107%;
+           width: 120%;
          }
         button{
             font: 500 2rem / 1 $font-family;
             text-align: center;
             color: $body;
             padding: 1.2rem 2rem;
-            border: 0.1rem solid $input;
+            border: 0.2rem solid $input;
             border-radius: 4rem;
             transition: all 0.3s;
             @media (max-width: 962px){

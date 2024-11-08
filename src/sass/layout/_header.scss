@@ -22,7 +22,7 @@
     }
     .hamburger{
         display: none;
-        @media (max-width: 962px){
+        @media (max-width: 1200px){
             display: block;
             svg{
               width: 3.6rem;
@@ -83,6 +83,7 @@
         font: 500 1.8rem / 1.6 $font-family;
         color: $body;
         transition: all 0.3s;
+        white-space: nowrap;
         @media (max-width: 962px){
             font: 700 1.6rem / 1.6 $font-family;
         }
@@ -97,6 +98,7 @@
         padding: 1.8rem 2.4rem;
         font: 500 1.8rem / 1 $font-family;
         color: $body;
+        white-space: nowrap;
         @media (max-width: 962px){
             font: 700 1.6rem / 1.6 $font-family;
             padding: 1.6rem 2.1rem;

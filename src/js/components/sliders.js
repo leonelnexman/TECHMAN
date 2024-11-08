@@ -33,11 +33,13 @@ const development = new Swiper('.development__slider', {
   slidesPerView: "auto",
   spaceBetween: 0,
   loop: true,
-  300: {
-    spaceBetween: 24,
-  },
-  900: {
-    spaceBetween: 0,
+  breakpoints: {
+    300: {
+      spaceBetween: 24,
+    },
+    968: {
+      spaceBetween: 0,
+    },
   },
 })
 
@@ -49,86 +51,78 @@ const isMobile = window.matchMedia("(max-width: 962px)").matches;
 
 if (!isMobile) {
 
-  const scrollPercentage = 0.33; // 33% для прокрутки
-const progressLine = document.querySelector(".progress-line"); // Предполагаем, что у вас есть элемент с классом .progress-line
-let scrollStep = 0; // Текущий шаг прокрутки (0, 1, 2)
-let isScrolling = false; // Флаг, чтобы отслеживать, прокручивается ли сейчас
+  const scrollPercentage = 0.33;
+  const progressLine = document.querySelector(".progress-line");
+  let scrollStep = 0;
+  let isScrolling = false;
 
-// Функция для обновления прогресса
-function updateProgressLine() {
-  const progress = (scrollStep + 1) * 33.33; // Увеличиваем прогресс на 33.33% за шаг
-  progressLine.style.height = `${progress}%`;
-}
-
-// Функция для плавной прокрутки внутреннего элемента
-function scrollInnerElement(event) {
-  if (isScrolling) return; // Пропускаем, если уже выполняется прокрутка
-
-  const innerElement = document.querySelector(".about__column-wrapper");
-  if (innerElement) {
-    const scrollAmount = innerElement.scrollHeight * scrollPercentage; // Вычисляем 33% от высоты
-    isScrolling = true;
-
-    // Если прокручиваем вниз
-    if (event.deltaY > 0) {
-      if (scrollStep < 2) { // Ограничиваем до 2-х шагов
-        scrollStep += 1;
-        gsap.to(innerElement, { 
-          scrollTop: scrollStep * scrollAmount, // Плавно прокручиваем на 33% за шаг
-          duration: 0.3, // Продолжительность анимации (можно настроить)
-          ease: "power1.out", // Плавное замедление
-          onComplete: () => { isScrolling = false; } // Явное изменение isScrolling
-        });
-        updateProgressLine();
-      } else {
-        window.scrollBy(0, scrollAmount);
-        isScrolling = false;
-      }
-    } 
-    // Если прокручиваем вверх
-    else if (event.deltaY < 0) {
-      if (scrollStep > 0) { // Ограничиваем до минимума 0
-        scrollStep -= 1;
-        gsap.to(innerElement, { 
-          scrollTop: scrollStep * scrollAmount,
-          duration: 0.3, 
-          ease: "power1.out",
-          onComplete: () => { isScrolling = false; } // Явное изменение isScrolling
-        });
-        updateProgressLine();
-      } else {
-        window.scrollBy(0, -scrollAmount);
-        isScrolling = false;
-      }
-    }
-
-    event.preventDefault(); // Предотвращаем прокрутку страницы
+  function updateProgressLine() {
+    const progress = (scrollStep + 1) * 33.33;
+    progressLine.style.height = `${progress}%`;
   }
-}
 
-// Включаем внутренний скролл
-const enableInnerScroll = () => {
-  window.addEventListener("wheel", scrollInnerElement);
-};
+  function scrollInnerElement(event) {
+    if (isScrolling) return;
 
-// Отключаем внутренний скролл
-const disableInnerScroll = () => {
-  window.removeEventListener("wheel", scrollInnerElement);
-};
+    const innerElement = document.querySelector(".about__column-wrapper");
+    if (innerElement) {
+      const scrollAmount = innerElement.scrollHeight * scrollPercentage;
+      isScrolling = true;
 
-// Настройка ScrollTrigger для фиксации секции .about
-ScrollTrigger.create({
-  trigger: ".about",
-  start: "top +30%",
-  end: () => `+=${  document.querySelector(".about__column-wrapper").scrollHeight}`,
-  pin: true,
-  scrub: true,
-  onEnter: enableInnerScroll,
-  onLeave: disableInnerScroll,
-  onEnterBack: enableInnerScroll,
-  onLeaveBack: disableInnerScroll,
-});
-  
+      if (event.deltaY > 0) {
+        if (scrollStep < 2) {
+          scrollStep += 1;
+          gsap.to(innerElement, { 
+            scrollTop: scrollStep * scrollAmount,
+            duration: 0.5, // Увеличиваем продолжительность анимации для плавности
+            ease: "power2.out", // Используем более плавный easing
+            onComplete: () => { isScrolling = false; }
+          });
+          updateProgressLine();
+        } else {
+          window.scrollBy(0, scrollAmount);
+          isScrolling = false;
+        }
+      } 
+      else if (event.deltaY < 0) {
+        if (scrollStep > 0) {
+          scrollStep -= 1;
+          gsap.to(innerElement, { 
+            scrollTop: scrollStep * scrollAmount,
+            duration: 0.5, // Увеличиваем продолжительность анимации для плавности
+            ease: "power2.out",
+            onComplete: () => { isScrolling = false; }
+          });
+          updateProgressLine();
+        } else {
+          window.scrollBy(0, -scrollAmount);
+          isScrolling = false;
+        }
+      }
+
+      event.preventDefault();
+    }
+  }
+
+  const enableInnerScroll = () => {
+    window.addEventListener("wheel", scrollInnerElement);
+  };
+
+  const disableInnerScroll = () => {
+    window.removeEventListener("wheel", scrollInnerElement);
+  };
+
+  ScrollTrigger.create({
+    trigger: ".about",
+    start: "top +30%",
+    end: () => `+=${document.querySelector(".about__column-wrapper").scrollHeight}`,
+    pin: true,
+    scrub: true,
+    onEnter: enableInnerScroll,
+    onLeave: disableInnerScroll,
+    onEnterBack: enableInnerScroll,
+    onLeaveBack: disableInnerScroll,
+  });
 }
 
 
