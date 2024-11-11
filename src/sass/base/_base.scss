@@ -5,6 +5,7 @@
     overflow: hidden;
 }
 html{
+    overscroll-behavior: none;
     font-size: calc(100vw / 1920 * 10);
     height: 100%;
     @media (min-width: 2150px){
@@ -20,6 +21,7 @@ body{
     margin: 0;
     height: 100%;
     background: #EEEAEA;
+    overscroll-behavior: none;
     &::-webkit-scrollbar{
         display: none;
     }
