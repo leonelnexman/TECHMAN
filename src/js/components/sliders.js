@@ -6,66 +6,70 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 let about;
 
 function initAboutSlider() {
-  if (window.innerWidth < 962 && !about) {
-    about = new Swiper('.about__column', {
+  const aboutColumn = document.querySelector('.about__column');
+  const paginationElement = document.querySelector('.swiper-pagination');
+
+  if (window.innerWidth < 962 && !about && aboutColumn && paginationElement) {
+    about = new Swiper(aboutColumn, {
       modules: [Autoplay, Pagination],
       slidesPerView: 1,
       spaceBetween: 30,
       speed: 1000,
       allowTouchMove: true,
       pagination: {
-        el: '.swiper-pagination',
+        el: paginationElement,
         type: 'bullets',
       },
     });
   } else if (window.innerWidth >= 962 && about) {
-    about.destroy(true, true); // Отключаем слайдер при большом разрешении
+    about.destroy(true, true); // Disable slider on larger screens
     about = null;
   }
 }
 
-// Инициализируем слайдер при загрузке страницы и при изменении размера окна
+// Initialize the slider on page load and on window resize
 initAboutSlider();
 window.addEventListener('resize', initAboutSlider);
 
-
-const development = new Swiper('.development__slider', {
-  slidesPerView: "auto",
-  spaceBetween: 0,
-  loop: true,
-  breakpoints: {
-    300: {
-      spaceBetween: 24,
+const developmentSliderElement = document.querySelector('.development__slider');
+if (developmentSliderElement) {
+  const development = new Swiper(developmentSliderElement, {
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    loop: true,
+    breakpoints: {
+      300: {
+        spaceBetween: 24,
+      },
+      968: {
+        spaceBetween: 0,
+      },
     },
-    968: {
-      spaceBetween: 0,
-    },
-  },
-})
+  });
+}
 
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 const isMobile = window.matchMedia("(max-width: 962px)").matches;
 
 if (!isMobile) {
-
-  const scrollPercentage = 0.33;
   const progressLine = document.querySelector(".progress-line");
-  let scrollStep = 0;
-  let isScrolling = false;
+  const innerElement = document.querySelector(".about__column-wrapper");
+  const aboutSection = document.querySelector(".about");
 
-  function updateProgressLine() {
-    const progress = (scrollStep + 1) * 33.33;
-    progressLine.style.height = `${progress}%`;
-  }
+  if (progressLine && innerElement && aboutSection) {
+    const scrollPercentage = 0.33;
+    let scrollStep = 0;
+    let isScrolling = false;
 
-  function scrollInnerElement(event) {
-    if (isScrolling) return;
+    function updateProgressLine() {
+      const progress = (scrollStep + 1) * 33.33;
+      progressLine.style.height = `${progress}%`;
+    }
 
-    const innerElement = document.querySelector(".about__column-wrapper");
-    if (innerElement) {
+    function scrollInnerElement(event) {
+      if (isScrolling) return;
+
       const scrollAmount = innerElement.scrollHeight * scrollPercentage;
       isScrolling = true;
 
@@ -74,8 +78,8 @@ if (!isMobile) {
           scrollStep += 1;
           gsap.to(innerElement, { 
             scrollTop: scrollStep * scrollAmount,
-            duration: 0.5, // Увеличиваем продолжительность анимации для плавности
-            ease: "power2.out", // Используем более плавный easing
+            duration: 0.5,
+            ease: "power2.out",
             onComplete: () => { isScrolling = false; }
           });
           updateProgressLine();
@@ -89,7 +93,7 @@ if (!isMobile) {
           scrollStep -= 1;
           gsap.to(innerElement, { 
             scrollTop: scrollStep * scrollAmount,
-            duration: 0.5, // Увеличиваем продолжительность анимации для плавности
+            duration: 0.5,
             ease: "power2.out",
             onComplete: () => { isScrolling = false; }
           });
@@ -102,30 +106,48 @@ if (!isMobile) {
 
       event.preventDefault();
     }
+
+    const enableInnerScroll = () => {
+      window.addEventListener("wheel", scrollInnerElement);
+    };
+
+    const disableInnerScroll = () => {
+      window.removeEventListener("wheel", scrollInnerElement);
+    };
+
+    ScrollTrigger.create({
+      trigger: aboutSection,
+      start: "top +30%",
+      end: () => `+=${innerElement.scrollHeight}`,
+      pin: true,
+      scrub: true,
+      onEnter: enableInnerScroll,
+      onLeave: disableInnerScroll,
+      onEnterBack: enableInnerScroll,
+      onLeaveBack: disableInnerScroll,
+    });
   }
-
-  const enableInnerScroll = () => {
-    window.addEventListener("wheel", scrollInnerElement);
-  };
-
-  const disableInnerScroll = () => {
-    window.removeEventListener("wheel", scrollInnerElement);
-  };
-
-  ScrollTrigger.create({
-    trigger: ".about",
-    start: "top +30%",
-    end: () => `+=${document.querySelector(".about__column-wrapper").scrollHeight}`,
-    pin: true,
-    scrub: true,
-    onEnter: enableInnerScroll,
-    onLeave: disableInnerScroll,
-    onEnterBack: enableInnerScroll,
-    onLeaveBack: disableInnerScroll,
-  });
 }
 
 
-
-
-
+const advantagesSlider = document.querySelector('.advantages__slider');
+if (advantagesSlider) {
+  const development = new Swiper(advantagesSlider, {
+    modules: [Pagination],
+    slidesPerView: 4,
+    spaceBetween: 0,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+    breakpoints: {
+      300: {
+        spaceBetween: 24,
+      },
+      968: {
+        spaceBetween: 0,
+      },
+    },
+  });
+}

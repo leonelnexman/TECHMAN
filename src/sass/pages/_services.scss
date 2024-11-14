@@ -1,0 +1,406 @@
+.services-main{
+    padding-top: 15rem;
+    margin-bottom: 15rem;
+    @media (max-width: 962px){
+        padding-top: 10rem;
+        margin-bottom: 8rem;
+    }
+    .container{
+        display: flex;
+        gap: 6.7rem;
+        @media (max-width: 962px){
+            gap: 2.4rem;
+        }
+        @media (max-width: 962px){
+            gap: 0;
+        }
+    }
+    &__img{
+        @media (max-width: 700px){
+            display: none;
+        }
+        svg{
+            width: 54.9rem;
+            height: 42.8rem;
+            @media (max-width: 962px){
+                width: 22rem;
+                height: 17rem;
+            }
+        }
+    }
+    &__info{
+        width: 79rem;
+        @media (max-width: 962px){
+            width: 45.6rem;
+        }
+        p{
+            font: 400 2rem / 1.6 $font-family;
+            color: $body;
+            margin-bottom: 5.2rem; 
+            @media (max-width: 962px){
+                font: 400 1.6rem / 1.4 $font-family;
+                margin-bottom: 3.2rem;
+            }   
+        }
+    }
+    &__title{
+        font: 700 6.5rem / 1 $font-family;
+        margin-bottom: 3.2rem;  
+        color: $body;
+        @media (max-width: 962px){
+            font: 700 4.2rem / 1.1 $font-family;
+        }
+        @media (max-width: 700px){
+            font: 700 3.3rem / 1.1 $font-family;
+        }
+        span{
+            color: $blue;
+        }
+    }
+    &__links{
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        a{
+           display: flex;
+           align-items: center;
+           font: 700 2.3rem / 1.1 $font-family;
+            color: $body;
+            gap: 1.2rem;
+            transition: all 0.3s;
+            @media (max-width: 962px){
+                font: 700 2rem / 1.2 $font-family;
+            }
+            @media (max-width: 700px){
+                font: 600 1.6rem / 1.4 $font-family;
+            }
+            &:hover{
+                color: $blue;
+                svg{
+                   transform: translateX(1rem);
+                   rect{
+                    fill: $green;
+                    stroke: $green;
+                   }
+                }
+            }
+           svg{
+            transition: all 0.3s;
+                width: 4.1rem;
+                height: 4.1rem;
+                @media (max-width: 962px){
+                    width: 2.6rem;
+                    height: 2.6rem;
+                }
+           } 
+        }
+    }
+}
+
+
+.services-banners{
+    margin-bottom: 15rem;
+    @media (max-width: 962px){
+        margin-bottom: 8rem;
+     } 
+    .container{
+        display: flex;
+        flex-direction: column;
+        gap: 18rem;
+        @media (max-width: 962px){
+            gap: 8rem;
+         } 
+    }
+    &__img{
+        border-radius: 8rem;
+        width: 160rem;
+        height: 74rem;
+        @media (max-width: 962px){
+           width: 100%;
+           height: 32.1rem;
+           border-radius: 3.5rem;
+        }
+        @media (max-width: 700px){
+            margin-bottom: 3rem;
+            border-radius: 24.8rem;
+            width: 31.2rem;
+            height: 31.2rem;
+            overflow: hidden;
+        }    
+    }
+    &__item{
+        position: relative;
+        &:nth-child(1) {
+            .services-banners__img{
+                position: relative;
+                background: url('../img/banner1.png');
+                background-size: cover;
+                .banner-img{
+                    width: 71rem;
+                    height: auto; 
+                    position: absolute;
+                    right: 0; 
+                    bottom: -10rem;
+                    @media (max-width: 962px){
+                        width: 30rem;
+                        bottom: -5rem;
+                     } 
+                }
+            }
+            .dec{
+                position: absolute;
+              top: 14.6rem;  
+              left: 53.4rem;
+              @media (max-width: 962px){
+                display: none;
+             } 
+              img{
+                width: 37.3rem;
+                height: 44.6rem;
+              }
+            }
+        }
+        &:nth-child(2) {
+            .services-banners__img{
+                position: relative;
+                background: url('../img/banner2.png');
+                background-size: cover;
+                .banner-img{
+                    width: 81rem;
+                    height: auto; 
+                    position: absolute;
+                    right: 0; 
+                    bottom: -10rem;
+                    @media (max-width: 962px){
+                        width: 35rem;
+                        bottom: -5rem;
+                     } 
+                }
+            }
+            .dec{
+                position: absolute;
+              bottom: 0;  
+              left: 51.2rem;
+              @media (max-width: 962px){
+                display: none;
+             } 
+              svg{
+                width: 48.5rem;
+                height: 27.3rem;
+              }
+            }
+            .dec2{
+                position: absolute;
+                top: 35rem;
+                left: 96.3rem;
+                @media (max-width: 962px){
+                    display: none;
+                 } 
+                img{
+                    width: 8.9rem !important;
+                }
+            }
+            .services-banners__title{
+                color: $white;  
+            }
+            p{
+                color: $white;  
+            }
+            button{
+                span{
+                    color: $white;
+                    border-color: $white;
+                }
+                .arrow{
+                    border-color: $white;
+                    path{
+                        stroke: $white;
+                    }
+                }
+            }
+        }
+        &:nth-child(3) {
+            .services-banners__img{
+                position: relative;
+                background: url('../img/banner3.png');
+                background-size: cover;
+                .banner-img{
+                    width: 96rem;
+                    height: auto; 
+                    position: absolute;
+                    right: 0; 
+                    bottom: -10rem;
+                    @media (max-width: 962px){
+                        width: 40rem;
+                        bottom: -5rem;
+                     } 
+                }
+            }
+            .dec{
+                position: absolute;
+              top: 14.6rem;  
+              left: 53.4rem;
+              @media (max-width: 962px){
+                display: none;
+             } 
+              img{
+                width: 37.3rem;
+                height: 44.6rem;
+              }
+            }
+        }
+    }
+    &__info{
+        position: absolute;
+        z-index: 7;
+        top: 17rem;
+        left: 13rem;
+        @media (max-width: 962px){
+           top: 5rem;
+           left: 6rem;
+        }
+        @media (max-width: 700px){
+            position: static;
+        } 
+        p{
+            font: 400 2.4rem / 1.6 $font-family;
+            color: $body;    
+            margin-bottom: 7rem;
+            @media (max-width: 962px){
+                font: 400 1.6rem / 1.4 $font-family;
+                margin-bottom: 1.9rem;
+            }
+            @media (max-width: 700px){
+                color: $body !important; 
+              } 
+        }
+    }
+    &__title{
+        font: 700 6.5rem / 1 $font-family;
+        color: $body; 
+        margin-bottom: 3rem; 
+        @media (max-width: 962px){
+            font: 700 2.8rem / 1 $font-family;
+        }
+        @media (max-width: 700px){
+            font: 700 2rem / 1.2 $font-family;
+            color: $body !important;
+            margin-bottom: 1.3rem; 
+          }   
+    }
+    &__btn{
+        @media (max-width: 962px){
+            span{
+                font: 500 1.2rem / 1.2 $font-family;
+                padding: 1.3rem 3rem;
+            }
+            .arrow{
+                width: 4.3rem;
+                height: 4.3rem;
+                svg{
+                    width: 1.5rem;
+                    height: 1.1rem;
+                }
+            }
+          }
+          @media (max-width: 700px){
+            span{
+                font: 500 1.6rem / 1.2 $font-family;
+                padding: 1.8rem 3rem;
+                width: 25.5rem;
+                border-color: $body !important;
+                color: $body !important;
+                background: transparent !important;
+            }
+            .arrow{
+                width: 5.6rem;
+                height: 5.6rem;
+                border-color: $body !important;
+                background: transparent !important;
+                svg{
+                    width: 2rem;
+                    height: 1.6rem;
+                    path{
+                        stroke: $body !important;
+                    }
+                }
+            }
+          }  
+    }
+}
+
+.individual{
+    margin-bottom: 28rem;
+    @media (max-width: 962px){
+        margin-bottom: 12rem;
+    }
+    .container{
+        display: flex;
+        gap: 17rem;
+        align-items: center;
+        @media (max-width: 962px){
+            gap: 2.5rem;
+            align-items: flex-start;
+          }
+          @media (max-width: 700px){
+            flex-direction: column;
+          }
+    }
+    &__img{
+        img{
+            width: 55rem;
+            height: 66.5rem; 
+            @media (max-width: 962px){
+                width: 21.4rem;
+                height: 22rem;
+            }
+            @media (max-width: 700px){
+                width: 100%;
+                height: auto;
+            }   
+        }
+    }
+    &__title{
+        font: 700 5rem / 1.1 $font-family;
+        color: $body; 
+        margin-bottom: 3.5rem;
+        @media (max-width: 962px){
+            font: 700 3.3rem / 1.1 $font-family;
+            color: $body;
+        } 
+        @media (max-width: 700px){
+            font: 600 2.8rem / 1.1 $font-family;
+            max-width: 29rem;
+        } 
+    }
+    &__info{
+        width: 78.5rem;
+        @media (max-width: 962px){
+            width: 43rem;
+        }
+        @media (max-width: 700px){
+            width: 100%;
+        } 
+        p{
+            font: 400 2rem / 1.6 $font-family;
+            color: $body; 
+            margin-bottom: 4rem;
+            @media (max-width: 962px){
+                font: 400 1.6rem / 1.4 $font-family;
+                color: $body;
+            }   
+        }
+    }
+    .individual__btn{
+        @media (max-width: 700px){
+            width: 100%;
+            span{
+                font: 500 1.6rem / 1.2 $font-family;
+                width: 100%;
+            }
+            .arrow{
+                display: none;
+            }
+        } 
+    }
+}

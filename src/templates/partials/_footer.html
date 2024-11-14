@@ -5,11 +5,10 @@
                 <div class="footer__roboot">
                     <img src="./img/robot1.gif" alt="">
                 </div>
-                <div class="footer__title">
-                    Хорошие идеи <br> начинаются
-                    <span>с разговора</span>
+                <div class="footer__title {% if footer_text_class %}{{ footer_text_class }}{% else %}default{% endif %}">
+                    {% if footer_text %}{{ footer_text | safe }}{% else %}Хорошие идеи <br> начинаются <span>с разговора</span>{% endif %}
                 </div>
-                <div class="author">Джон Айв</div>
+                <div class="author">{% if author %}{{ author | safe }}{% else %}Джон Айв{% endif %}</div>
                 <button class="stroke-btn--green"><span>Оставить заявку</span></button>
             </div>
             <div class="footer__contacts">
@@ -23,6 +22,10 @@
                         <span>Пишите:</span>
                         <a href="mailto:tm@tecman.ru">tm@tecman.ru</a>
                     </div>
+                </div>
+                <div class="mobile-buttons">
+                    <button class="stroke-btn--blue"><span>Позвонить</span></button>
+                    <button class="stroke-btn--green"><span>Оставить заявку</span></button>
                 </div>
                 <div class="footer__contacts-offices">
                     <div class="footer__contacts-offices-title">Наши офисы:</div>

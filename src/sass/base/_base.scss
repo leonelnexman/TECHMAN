@@ -33,6 +33,10 @@ body{
     flex: 1 1 auto;
 }
 
+button{
+    transition: all 0.3s;
+}
+
 .container{
     max-width: 155.5rem;
     margin: 0 auto;

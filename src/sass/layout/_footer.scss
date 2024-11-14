@@ -3,6 +3,7 @@
     background: $body;
     padding-top: 25rem;
     // min-height: 900rem;
+    z-index: 777777777777777;
     @media (max-width: 1200px){
         padding-top: 12.1rem;
         height: auto;
@@ -22,6 +23,19 @@
     &__title{
         font: 700 9rem / 1 $font-family;
         color: $white;
+        &.small{
+            font: 700 6.5rem / 1 $font-family;
+              @media (max-width: 962px){
+                font: 700 4.9rem / 1 $font-family;
+                max-width: 55rem;
+                br{
+                    display: none;
+                }
+                }
+                @media (max-width: 700px){
+                    font: 700 3.3rem / 1 $font-family;
+                 }
+        }
         @media (max-width: 962px){
             font: 700 6.5rem / 1 $font-family;
          }
@@ -29,7 +43,6 @@
             font: 700 3.3rem / 1.1 $font-family;
          }
         span{
-            display: block;
             color: $green;
         }    
     }
@@ -42,12 +55,13 @@
         button{
             @media (max-width: 962px){
                 position: absolute;
-                left: 34rem;
+                left: 32rem;
                 top: 54.5rem;
             }
             @media (max-width: 700px){
                 left: 2.5rem;
                 width: 31rem;
+                display: none;
              }
         }
         img{
@@ -60,9 +74,9 @@
             @media (max-width: 962px){
                 width: 19.4rem;
                 height: 14.4rem;
-                top: 5rem;
+                top: 3rem;
                 left: auto;
-                right: 5rem;
+                right: 3rem;
              }
              @media (max-width: 700px){
                 top: 3rem;
@@ -107,13 +121,16 @@
     }
     &__contacts{
         width: 50.7rem;
+        @media (max-width: 700px){
+            width: 100%;
+         }
     }
     &__contacts-block{
         display: flex;
         gap: 8.7rem;
         @media (max-width: 700px){
             gap: 2.7rem;
-            margin-bottom: 29rem;
+            margin-bottom: 0rem;
          }
     }
     &__contacts-offices{
@@ -147,6 +164,7 @@
             @media (max-width: 700px){
                 width: 31rem;
                 position: absolute;
+                display: none;
             }
             &:hover{
                 span{
@@ -222,10 +240,14 @@
         }
         @media (max-width: 700px){
             justify-content: flex-start;
-            width: 100%;
+            min-width: 100%;
             flex-direction: column;
             align-items: center;
             margin-bottom: 0rem;
+            position: static;
+            transform: translate(0);
+            margin-top: 6rem;
+
          }
         p{
             font: 400 1.6rem / 1.4 $font-family;
@@ -243,6 +265,23 @@
         @media (max-width: 700px){
             gap: 0;
             flex-direction: column;
+            padding-bottom: 0;
          }
     }
+}
+
+.mobile-buttons{
+    display: none;
+    @media (max-width: 700px){
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 2.4rem;
+        button{
+            width: 100%;
+            &:nth-child(1){
+                border-color: $blue;
+            }
+        }
+     }
 }
