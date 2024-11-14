@@ -143,11 +143,47 @@ if (advantagesSlider) {
     },
     breakpoints: {
       300: {
-        spaceBetween: 24,
+        slidesPerView: 'auto',
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',        },
       },
       968: {
-        spaceBetween: 0,
+        slidesPerView: 4,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'progressbar',
+        },
       },
     },
   });
 }
+
+
+const aboutdescr = document.querySelector('.about-descr__img-wrap');
+let boutdescr;
+
+function initSlider() {
+  if (window.innerWidth < 700 && !boutdescr) {
+    // Инициализируем слайдер, если его еще нет и ширина экрана меньше 962px
+    boutdescr = new Swiper(aboutdescr, {
+      modules: [Pagination],
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+      },
+    });
+  } else if (window.innerWidth >= 700 && boutdescr) {
+    // Уничтожаем слайдер, если он существует и ширина экрана больше или равна 962px
+    boutdescr.destroy();
+    boutdescr = null;
+  }
+}
+
+// Вызываем функцию инициализации при загрузке страницы
+initSlider();
+
+// Добавляем слушатель на изменение размера окна
+window.addEventListener('resize', initSlider);

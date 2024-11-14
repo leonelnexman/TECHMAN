@@ -11,6 +11,9 @@
      @media (max-width: 962px){
         min-height: auto;
     }
+    @media (max-width: 962px){
+        padding: 15rem 0 3rem;
+    }
     &__wrapper{
         display: flex;
         justify-content: space-between;
