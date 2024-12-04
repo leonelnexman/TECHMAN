@@ -1,6 +1,20 @@
 .about-main{
     padding-top: 15rem;
     margin-bottom: 28rem;
+    .bg{
+        background: #fff;
+        filter: blur(400px);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .container{
+        position: relative;
+        z-index: 777;
+    }
     @media (max-width: 962px){
         margin-bottom: 14rem;
     }
@@ -24,7 +38,7 @@
     }
     &__title{
         display: flex;
-        font: 700 7.8rem / 1 $font-family;
+        font: 700 7.8rem / 1.35 $font-family;
         color: $body;
         gap: 11.4rem;
         margin-bottom: 10rem;
@@ -75,7 +89,7 @@
         gap: 1.2rem;
         align-items: center;
         color: $body;
-        margin-bottom: 3.5rem;
+        margin-bottom: 2.5rem;
         @media (max-width: 962px){
             align-items: flex-start;
             flex-direction: column;
@@ -132,8 +146,8 @@
         margin-bottom: 8rem;
     }
     img{
-        width: 195.5rem;
-        height: 100rem;
+        width: 100vw;
+        height: auto;
         @media (max-width: 962px){
             width: 76.8rem;
             height: 39.3rem;
@@ -155,11 +169,12 @@
         color: $body;  
         margin-bottom: 13rem;
         @media (max-width: 962px){
+            font-size: 3.3rem;
             margin-bottom: 5rem;
         }
         @media (max-width: 700px){
             font: 700 2.3rem / 1.1 $font-family;
-            margin-bottom: 0rem;
+            margin-bottom: 3rem;
         }    
     }
 }
@@ -415,6 +430,7 @@
         width: 31.7rem;
         z-index: 10;
         border-radius: 2rem;
+        display: none;
       }
       
       /* Заполняющий индикатор прогрессбара */
@@ -431,7 +447,7 @@
       }
 
       .swiper-pagination-bullets{
-        display: flex;
+        display: flex !important;
         justify-content: center;
         align-items: center;
         gap: 0.8rem;
@@ -447,4 +463,22 @@
             }
         }
       }
+}
+
+.cursor{
+    top: 13rem;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    background: $blue;
+    color: #fff;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 777;
 }

@@ -27,6 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  const formInputs = document.querySelectorAll('.contacts-form__input');
+
+  // Функция для проверки заполненности input
+  function toggleActiveClass(inputElement) {
+    const parent = inputElement.closest('.contacts-form__input');
+    if (inputElement.value.trim() !== '') {
+      parent.classList.add('active');
+    } else {
+      parent.classList.remove('active');
+    }
+  }
+  
+  // Добавляем обработчики событий для каждого input
+  formInputs.forEach((formInput) => {
+    const input = formInput.querySelector('input');
+  
+    // Реагируем на события input и blur
+    input.addEventListener('input', () => toggleActiveClass(input));
+    input.addEventListener('blur', () => toggleActiveClass(input));
+  });
+
   
 
 
