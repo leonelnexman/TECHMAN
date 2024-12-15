@@ -9,14 +9,14 @@
                     {% if footer_text %}{{ footer_text | safe }}{% else %}Хорошие идеи <br> начинаются <br> <span>с разговора</span>{% endif %}
                 </div>
                 <div class="author">{% if author %}{{ author | safe }}{% else %}Джон Айв{% endif %}</div>
-                <button class="stroke-btn--green"><span>Оставить заявку</span></button>
+                <button class="stroke-btn--green open-modal"><span>Оставить заявку</span></button>
             </div>
             <div class="footer__contacts">
                 <div class="footer__contacts-block">
                     <div class="footer__contacts-column">
                         <span>Звоните:</span>
                         <a href="tel:+7 (495) 798-48-08">+7 (495) 798-48-08</a>
-                        <button class="stroke-btn--blue"><span>Позвонить</span></button>
+                        <button class="stroke-btn--blue open-modal"><span>Позвонить</span></button>
                     </div>
                     <div class="footer__contacts-column">
                         <span>Пишите:</span>
@@ -24,8 +24,8 @@
                     </div>
                 </div>
                 <div class="mobile-buttons">
-                    <button class="stroke-btn--blue"><span>Позвонить</span></button>
-                    <button class="stroke-btn--green"><span>Оставить заявку</span></button>
+                    <button class="stroke-btn--blue open-modal"><span>Позвонить</span></button>
+                    <button class="stroke-btn--green open-modal"><span>Оставить заявку</span></button>
                 </div>
                 <div class="footer__contacts-offices">
                     <div class="footer__contacts-offices-title">Наши офисы:</div>
@@ -59,3 +59,47 @@
         </div>
     </div>
 </footer>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal contact-modal">
+        <div class="modal-content">
+            <button class="close" id="closeModal">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.0938 20.3921L2.09375 2.39209" stroke="#110545" stroke-width="2" stroke-linecap="square" />
+                    <path d="M2.09375 20.3921L20.0938 2.39209" stroke="#110545" stroke-width="2" stroke-linecap="square" />
+                  </svg>
+            </button>
+            <div class="contacts-form">
+                <form>
+                    <div class="contacts-form__title">Напишите нам</div>
+                    <form action="" class="contacts-form__form">
+                        <div class="contacts-form__input">
+                            <input type="text" placeholder="Тема (например, разработка мобильного приложения)">
+                        </div>
+                        <div class="contacts-form__input">
+                            <input type="text" placeholder="Ваше имя*">
+                        </div>
+                        <div class="contacts-form__input">
+                            <input type="text" placeholder="Е-mail*">
+                        </div>
+                        <div class="contacts-form__input">
+                            <input type="text" placeholder="Телефон">
+                        </div>
+                        <div class="contacts-form__input">
+                            <input type="text" placeholder="Ваше предложение или вопрос">
+                        </div>
+                        <div class="contacts-form__wrap">
+                            <button>Отправить</button>
+                            <p>Мы свяжемся с вами по телефону для подробной консультации
+                            и вышлем на почту примеры наших работ</p>
+                        </div>
+                        <div class="contacts-form__policy">
+                            <input class="styled-checkbox" id="checkbox2" type="checkbox" value="value1">
+                            <label for="checkbox2">Я даю согласие на <a href="">обработку своих персональных данных</a></label>
+                        </div>
+                    </form>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

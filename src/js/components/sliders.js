@@ -129,7 +129,6 @@ if (!isMobile) {
   }
 }
 
-
 const advantagesSlider = document.querySelector('.advantages__slider');
 if (advantagesSlider) {
   const development = new Swiper(advantagesSlider, {
@@ -162,74 +161,77 @@ document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".advantages__slider");
   const cursor = document.querySelector(".cursor");
 
-  // Анимация для появления курсора
-  const cursorAnimation = gsap.to(cursor, {
-    opacity: 1,
-    paused: true, // Управляем вручную
-    duration: 0.2,
-    ease: "power2.out",
-  });
+  if (slider && cursor) {
+    // Анимация для появления курсора
+    const cursorAnimation = gsap.to(cursor, {
+      opacity: 1,
+      paused: true, // Управляем вручную
+      duration: 0.2,
+      ease: "power2.out",
+    });
 
-  // Флаг для отслеживания состояния перетаскивания
-  let isDragging = false;
+    // Флаг для отслеживания состояния перетаскивания
+    let isDragging = false;
 
-  // Создаем инерционное движение
-  function moveCursor(event) {
-    const duration = isDragging ? 0.5 : 0.5; // Плавнее, если происходит перетаскивание
-    gsap.to(cursor, {
-      x: event.clientX,
-      y: event.clientY,
-      duration,
-      ease: isDragging ? "power3.out" : "power2.out", // Более плавная функция easing
+    // Создаем инерционное движение
+    function moveCursor(event) {
+      const duration = isDragging ? 0.5 : 0.5; // Плавнее, если происходит перетаскивание
+      gsap.to(cursor, {
+        x: event.clientX,
+        y: event.clientY,
+        duration,
+        ease: isDragging ? "power3.out" : "power2.out", // Более плавная функция easing
+      });
+    }
+
+    // Показ курсора при наведении
+    slider.addEventListener("mouseenter", () => {
+      cursorAnimation.play(); // Плавное появление
+      slider.addEventListener("mousemove", moveCursor); // Слежение за мышью
+    });
+
+    // Скрытие курсора при выходе
+    slider.addEventListener("mouseleave", () => {
+      cursorAnimation.reverse(); // Плавное исчезновение
+      slider.removeEventListener("mousemove", moveCursor);
+    });
+
+    // Обработчики для начала и окончания перетаскивания
+    slider.addEventListener("mousedown", () => {
+      isDragging = true; // Включаем плавное скольжение
+    });
+
+    slider.addEventListener("mouseup", () => {
+      isDragging = false; // Возвращаемся к обычному следованию
+    });
+
+    slider.addEventListener("mouseleave", () => {
+      isDragging = false; // Сбрасываем флаг при выходе
     });
   }
-
-  // Показ курсора при наведении
-  slider.addEventListener("mouseenter", () => {
-    cursorAnimation.play(); // Плавное появление
-    slider.addEventListener("mousemove", moveCursor); // Слежение за мышью
-  });
-
-  // Скрытие курсора при выходе
-  slider.addEventListener("mouseleave", () => {
-    cursorAnimation.reverse(); // Плавное исчезновение
-    slider.removeEventListener("mousemove", moveCursor);
-  });
-
-  // Обработчики для начала и окончания перетаскивания
-  slider.addEventListener("mousedown", () => {
-    isDragging = true; // Включаем плавное скольжение
-  });
-
-  slider.addEventListener("mouseup", () => {
-    isDragging = false; // Возвращаемся к обычному следованию
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    isDragging = false; // Сбрасываем флаг при выходе
-  });
 });
-
 
 const aboutdescr = document.querySelector('.about-descr__img-wrap');
 let boutdescr;
 
 function initSlider() {
-  if (window.innerWidth < 700 && !boutdescr) {
-    // Инициализируем слайдер, если его еще нет и ширина экрана меньше 962px
-    boutdescr = new Swiper(aboutdescr, {
-      modules: [Pagination],
-      slidesPerView: 1,
-      spaceBetween: 20,
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'bullets',
-      },
-    });
-  } else if (window.innerWidth >= 700 && boutdescr) {
-    // Уничтожаем слайдер, если он существует и ширина экрана больше или равна 962px
-    boutdescr.destroy();
-    boutdescr = null;
+  if (aboutdescr) {
+    if (window.innerWidth < 700 && !boutdescr) {
+      // Инициализируем слайдер, если его еще нет и ширина экрана меньше 962px
+      boutdescr = new Swiper(aboutdescr, {
+        modules: [Pagination],
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+        },
+      });
+    } else if (window.innerWidth >= 700 && boutdescr) {
+      // Уничтожаем слайдер, если он существует и ширина экрана больше или равна 962px
+      boutdescr.destroy();
+      boutdescr = null;
+    }
   }
 }
 
@@ -238,3 +240,14 @@ initSlider();
 
 // Добавляем слушатель на изменение размера окна
 window.addEventListener('resize', initSlider);
+
+
+const sliderElement = document.querySelector('.for-what__slider');
+
+if (sliderElement) {
+  const forWhatSlider = new Swiper(sliderElement, {
+    slidesPerView: 3,
+    spaceBetween: 32,
+  });
+
+}

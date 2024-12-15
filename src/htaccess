@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule ^contacts$ /contacts.html [L]
+RewriteRule ^services$ /services.html [L]
+RewriteRule ^articles$ /articles.html [L]
+RewriteRule ^projects$ /projects.html [L]
+RewriteRule ^about$ /about.html [L]
+RewriteRule ^development-of-crm&erp-systems$ /service-crm.html [L]
+RewriteRule ^mobile-application-development$ /service-mobile.html [L]
+RewriteRule ^technical-support$ /service-techsupport.html [L]

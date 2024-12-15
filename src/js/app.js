@@ -1,6 +1,11 @@
 
 
+import "./components/mobile-menu"
+import "./components/modal"
+import "./components/conditions"
+import "./components/steps"
 import "./components/sliders"
+
 
   const currentPath = window.location.pathname;
 

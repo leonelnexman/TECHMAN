@@ -181,6 +181,9 @@
     &__title{
         font: 700 3.3rem / 1.1 $font-family;
         color: $body;
+        @media (max-width: 700px){
+            font: 700 2.5rem / 1.1 $font-family;
+        }
     }
     &__wrap{
         display: flex;
@@ -243,6 +246,9 @@
             font: 400 2rem / 1.6 $font-family;
             color: $second-text;
             transition: all 0.3s;
+            @media (max-width: 700px){
+                font-size: 1.6rem;
+            }
             &::placeholder{
                 transition: all 0.3s;
             }

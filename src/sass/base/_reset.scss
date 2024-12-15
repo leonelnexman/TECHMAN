@@ -100,3 +100,7 @@ a {
 path, rect, circle, g{
 	transition: all 0.3s;
 }
+
+path{
+	transform-origin: center center;
+}

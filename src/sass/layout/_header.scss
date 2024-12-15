@@ -1,9 +1,42 @@
 .header{
     padding-top: 2.7rem;
     position: relative;
-    z-index: 777777777777;
+    z-index: 777777777777777;
     &.white{
-        background: #fff;
+        background: transparent;
+    }
+    &.green{
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: transparent;
+    }
+    &.blue{
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background: transparent;
+       .lang-swither{
+        color: #fff;
+       }
+       .header__tel{
+        color: #fff;
+       }
+       .nav a{
+        color: #fff !important;
+       }
+       .logo p{
+        color: rgba(255, 255, 255, 0.62);
+       }
+       .logo svg path{
+            fill: #fff;
+       }
+       .header__btn{
+        color: #fff;
+        border-color: $blue;
+       }
     }
     @media (max-width: 962px){
         padding-top: 0;
@@ -20,6 +53,8 @@
         gap: 15rem;
         justify-content: space-between;
         align-items: center;
+        position: relative;
+        z-index: 777;
         @media (max-width: 962px){
             gap: 0;
         }
@@ -38,8 +73,11 @@
         display: flex;
         align-items: center;
         gap: 1.6rem;
-        img{
+        svg{
             width: 15.5rem;
+            path{
+                fill: $body;
+            }
             @media (max-width: 962px){
                 width: 17.7rem;
             }
@@ -123,5 +161,125 @@
         &:hover{
             background: $green;
         } 
+    }
+}
+
+.mobile{
+    display: none;
+    @media (max-width: 962px){
+        display: block !important;
+    } 
+}
+
+.nav-wrapper{
+    .inner{
+        .tel{
+            display: none;
+            @media (max-width: 700px){
+                display: block;
+            } 
+        }
+        .header__btn{
+            display: none;
+            @media (max-width: 700px){
+                display: block;
+                width: 87%;
+                position: absolute;
+                bottom: 6rem;
+            } 
+        }
+    }
+    @media (max-width: 962px){
+        position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 777;
+    background: rgba(56, 82, 206, 0.75);
+    opacity: 0;
+    transition: all 0.3s;
+    visibility: hidden;
+    &.visible{
+        opacity: 1;
+        visibility: visible;
+        .inner{
+            transform: translate(0);
+        }
+    }
+    .nav{
+        display: flex !important;
+        flex-direction: column;
+        gap: 4.5rem;
+        a{
+            font: 600 2.8rem / 1.1 $font-family;  
+        }
+    }
+    .inner{
+        width: 67rem;
+        margin-left: auto;
+        background: #fff;
+        position: relative;
+        padding: 23.3rem 5.6rem 0;
+        height: 100%;
+        box-shadow: 0 30px 40px 0 rgba(3, 15, 74, 0.33);
+        border-radius: 3rem 0 0 3rem;
+        transition: all 0.3s;
+        transform: translateX(100%);
+    }
+    .close{
+        position: absolute;
+        cursor: pointer;
+        right: 5.2rem;
+        top: 3.8rem;
+        svg{
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+    }
+    .lang-swither{
+        position: absolute;
+        cursor: pointer;
+        left: 6.3rem;
+        top: 3.4rem; 
+        font: 500 1.6rem / 1.6 $font-family;  
+    }
+    } 
+    @media (max-width: 700px){
+        .inner{
+            width: 100%;
+            padding: 20.7rem 2.3rem 5.6rem;
+            border-radius: 0;
+        }
+        .nav{
+            gap: 3rem !important;
+            a{
+                font: 600 2.3rem / 1.1 $font-family;   
+            }
+        } 
+        .close{
+            top: 2.5rem;
+            right: 2.5rem;
+        } 
+        .tel{
+            position: absolute;
+            font: 400 2rem / 1.4 $font-family;
+            color: $body;
+            left: 2.4rem;
+            top: 8.8rem;
+        }
+        .lang-swither{
+            top: 8.7rem;
+            right: 2.4rem;
+            left: auto;
+        }
+    }
+    @media (max-height: 667px){
+        .inner{
+            padding-top: 17rem !important;
+        }
+        .nav{
+            gap: 1.5rem !important;
+        }
     }
 }

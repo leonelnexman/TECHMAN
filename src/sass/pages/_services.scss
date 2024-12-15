@@ -220,7 +220,7 @@
             p{
                 color: rgba($color: #fff, $alpha: 0.8);  
             }
-            button{
+            a{
                 &:hover{
                     span{
                        border-color: transparent; 
@@ -351,7 +351,7 @@
     }
 }
 
-.individual{
+.individual-all{
     margin-bottom: 28rem;
     @media (max-width: 962px){
         margin-bottom: 12rem;

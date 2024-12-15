@@ -1,0 +1,428 @@
+.project-main{
+    padding-top: 14.5rem;
+    margin-bottom: 24.8rem;
+    @media (max-width: 962px){
+       margin-bottom: 6.7rem;
+    }
+    @media (max-width: 700px){
+        margin-bottom: 9.6rem;
+     }
+    &__lable{
+        background: $green;
+        font: 500 2.3rem / 1.2 $font-family;
+        color: $body;
+        border-radius: 0.8rem;
+        display: inline-block;
+        padding: 0.5rem;
+        margin-bottom: 1.2rem;
+    }
+    &__title{
+        font: 700 8rem / 1 $font-family;
+        color: $body;
+        width: 132.5rem;
+        margin-bottom: 6.5rem;
+        @media (max-width: 962px){
+            width: 100%;
+            font: 700 4.7rem / 1.1 $font-family;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 700px){
+            font: 700 3.3rem / 1.1 $font-family;
+          }
+    }
+    &__flex{
+        display: flex;
+        gap: 6rem;
+        @media (max-width: 962px){
+            flex-direction: column;
+            gap: 1rem;
+         }
+    }
+    &__item{
+       font: 400 2rem / 1.4 $font-family;
+        color: $body; 
+        @media (max-width: 700px){
+            font: 400 1.6rem / 1.4 $font-family;
+          }
+        span{
+          color: #5a5771;  
+        }
+    }
+}
+
+.img-section{
+    margin-bottom: 15rem;
+    @media (max-width: 962px){
+       margin-bottom: 12rem;
+     }
+     @media (max-width: 700px){
+        margin-bottom: 4.6rem;
+     }
+    img{
+        width: 100%;
+        height: 90rem;
+        object-fit: cover;
+        @media (max-width: 962px){
+            height: 39.4rem;
+        } 
+        @media (max-width: 700px){
+            height: 31.2rem;
+         }
+    }
+    p{
+        width: 105.6rem;
+        text-align: center;
+        margin: auto;
+        margin-top: 15rem;
+        font: 500 2.4rem / 1.6 $font-family;
+        text-align: center;
+        color: $body;
+        @media (max-width: 962px){
+           width: 100%;
+           margin-top: 12rem;
+           padding: 0 3.6rem;
+        }
+        @media (max-width: 700px){
+            font: 600 2rem / 1.6 $font-family;
+            margin-top: 8rem;
+            text-align: left;
+            padding: 0 2.3rem;
+         }
+    }
+}
+
+.flex-section{
+    margin-bottom: 24rem;
+    position: relative;
+    @media (max-width: 962px){
+        margin-bottom: 12rem;
+    }
+    @media (max-width: 700px){
+        margin-bottom: 8rem;
+     } 
+    &.digit{
+        @media (max-width: 962px){
+            display: none;
+        }
+        svg{
+            top: auto;
+            left: 15.5rem;
+            position: absolute;
+            bottom: 0;
+          width: 80.2rem;
+          height: 54.6rem;
+          @media (max-width: 962px){
+            display: none;
+        }  
+        }
+    }
+    .container{
+        position: relative;
+        z-index: 777;
+    }
+    svg{
+        position: absolute;
+        left: 0;
+        top: -20rem;
+        width: 58.5rem;
+        height: 126.4rem;
+        @media (max-width: 962px){
+            display: none;
+        }  
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 13rem; 
+        @media (max-width: 962px){
+           flex-direction: column-reverse;
+           gap: 12rem;
+        } 
+        @media (max-width: 700px){
+            gap: 4.8rem;
+         }  
+    }
+    &__title{
+        font: 700 3.3rem / 1.1 $font-family;
+        color: $body;  
+        margin-bottom: 3rem; 
+        @media (max-width: 962px){
+            font: 600 2.8rem / 1.1 $font-family;
+         } 
+    }
+    &__info{
+        width: 61rem;
+        @media (max-width: 962px){
+            width: 57.9rem;
+        }
+        @media (max-width: 700px){
+            width: 100%;
+         }  
+        p{
+            font: 400 2rem / 1.6 $font-family;
+            color: $body; 
+            @media (max-width: 700px){
+                font: 400 1.6rem / 1.4 $font-family;
+             }    
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+    }
+    .arc{
+        margin-top: 3rem;
+        font: 600 2rem / 1.6 $font-family;
+        color: $body;   
+    }
+    img{
+        width: 65rem;
+        height: 86rem;
+        object-fit: cover; 
+        @media (max-width: 962px){
+            border-radius: 3.5rem;
+            width: 57.6rem;
+            height: 76.2rem;
+        }
+        @media (max-width: 700px){
+            border-radius: 1.9rem;
+            width: 31.2rem;
+            height: 43.3rem;
+         }   
+    }
+}
+
+.svg-img{
+    margin-bottom: 14rem;
+    @media (max-width: 962px){
+        display: none;
+    }
+    svg{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.img-text{
+    margin-bottom: 24rem;
+    @media (max-width: 962px){
+        margin-bottom: 12rem;
+    }
+    @media (max-width: 700px){
+        margin-bottom: 8rem;
+    }
+    &.no-center{
+        .article{
+            border-radius: 2.4rem;
+            padding: 2rem 3.2rem;
+            width: 105.6rem;
+            height: 10.4rem; 
+            background: #dff5ff;
+            font: 400 2rem / 1.6 $font-family;
+            color: $body; 
+            margin: auto;
+            margin-top: 4rem;
+        }
+        p{
+            text-align: left;
+        }
+    }
+    .container{
+        max-width: 180rem;
+        @media (max-width: 700px){
+            max-width: 100%;
+            padding: 0;
+        }     
+    }
+    img{
+        width: 100%;
+        height: 90rem;
+        margin-bottom: 4rem;
+        object-fit: cover;
+        @media (max-width: 962px){
+            height: 34.7rem;  
+        }
+        @media (max-width: 700px){
+            height: 31.2rem;
+         }
+    }
+    p{
+        font: 400 2rem / 1.6 $font-family;
+        text-align: center;
+        color: $body;
+        text-align: center;
+        width: 105.6rem;
+        margin: auto;
+        @media (max-width: 962px){
+            width: 69rem;
+        }
+        @media (max-width: 700px){
+            width: 100%;
+            font: 400 1.6rem / 1.4 $font-family;
+            padding: 0 2.3rem;
+            text-align: left;
+         }   
+    }
+}
+
+.elements{
+    margin-bottom: 25rem;
+    position: relative;
+    @media (max-width: 962px){
+        margin-bottom: 12rem;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        gap: 15.8rem;
+        z-index: 777;
+        position: relative;
+        @media (max-width: 962px){
+            gap: 12rem;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media (max-width: 700px){
+            gap: 8rem;
+         } 
+    }
+    svg{
+      width: 55.5rem;
+      height: 126.4rem;
+      position: absolute;
+      top: -10rem;
+      right: 0; 
+      @media (max-width: 962px){
+        display: none;
+    } 
+    }
+    &__item{
+        width: 65rem;
+        @media (max-width: 962px){
+            width: 100%;
+        }
+        &:nth-child(2){
+            padding-top: 14rem;
+            @media (max-width: 962px){
+                padding-top: 0;
+            }
+        }
+        img{
+            width: 65rem;
+            height: 86rem;  
+            margin-bottom: 4rem; 
+            object-fit: cover;
+            @media (max-width: 962px){
+                width: 100%;
+                height: 97.7rem;
+                border-radius: 3.6rem;
+            }
+            @media (max-width: 700px){
+                width: 31.2rem;
+                height: 43.8rem;
+             } 
+        }
+        p{
+            font: 400 2rem / 1.6 $font-family;
+            text-align: center;
+            color: $body; 
+            @media (max-width: 700px){
+                font: 400 1.6rem / 1.4 $font-family;
+                text-align: left;
+             } 
+        }
+    }
+}
+
+.main-project{
+    background: #fff;
+}
+
+.projects-more{
+    padding-top: 13.5rem;
+    padding-bottom: 16.1rem;
+    background: $grey;
+    font: 700 5rem / 1.1 $font-family;
+    color: $body;
+    @media (max-width: 962px){
+        background: url('../img/projects-more.png');
+        background-size: cover !important;
+        padding-top: 25rem;
+    }
+    @media (max-width: 700px){
+        margin-top: -12rem;
+        padding-top: 20rem;
+    }
+    &__title{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 11rem;
+        @media (max-width: 962px){
+            font: 700 3.3rem / 1.1 $font-family;
+            margin-bottom: 5rem;
+            gap: 1.9rem;
+        }
+        
+        svg{
+            width: 10.7rem;
+            height: 8.5rem;
+            @media (max-width: 700px){
+               width: 7.6rem;
+               height: 6rem;
+            }
+        }
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: center;
+        gap: 17rem;
+        @media (max-width: 962px){
+            gap: 2.5rem;
+        }
+    }
+    &__item{
+        @media (max-width: 700px){
+            &:nth-child(3){
+                display: none;
+            }
+        }
+        img{
+            border-radius: 3rem;
+            width: 37.5rem;
+            height: 44rem;   
+            margin-bottom: 2rem; 
+            @media (max-width: 962px){
+                width: 21.5rem;
+                height: 28.6rem;
+            }
+            @media (max-width: 700px){
+                border-radius: 0.9rem;
+                width: 14.4rem;
+                height: 16.9rem;
+            }
+        }
+        div{
+            text-align: center;
+            font: 700 2rem / 1.2 $font-family;
+            color: $body;
+        }
+    }
+    &__btn{
+        display: none;
+        gap: 1.2rem;
+        align-items: center;
+        padding: 1.6rem 4rem;
+        border: 2px solid $body;
+        border-radius: 9rem;
+        @media (max-width: 700px){
+            display: flex;
+        }
+        svg{
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+    }
+}
